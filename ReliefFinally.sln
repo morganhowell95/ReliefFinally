@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliefFinally.CSharp", "Rel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliefFinally.CSharp.Editor.Plugins", "ReliefFinally.CSharp.Editor.Plugins.csproj", "{BD3FC716-18A6-0841-E326-8A7BD39534F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliefFinally.CSharp.Editor", "ReliefFinally.CSharp.Editor.csproj", "{AD590396-C26F-E769-8171-057F2AC6F778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{BD3FC716-18A6-0841-E326-8A7BD39534F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD3FC716-18A6-0841-E326-8A7BD39534F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3FC716-18A6-0841-E326-8A7BD39534F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD590396-C26F-E769-8171-057F2AC6F778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD590396-C26F-E769-8171-057F2AC6F778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD590396-C26F-E769-8171-057F2AC6F778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD590396-C26F-E769-8171-057F2AC6F778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
