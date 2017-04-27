@@ -9,6 +9,7 @@ public class PickupShape : MonoBehaviour {
 
 	void Start () {
 		piecePickupProgress.text = "";
+		ReliefStats.Instance.currentSnowyTerrainProgress = 0;
 	}
 
 	void showPiecePickupProgress(string pieceType, GameObject piece) {
@@ -25,39 +26,40 @@ public class PickupShape : MonoBehaviour {
 			break;
 		}
 
-		Invoke ("eraseCurrentStatus", 6); //delays erase for three seconds
+		//Invoke ("eraseCurrentStatus", 10); //delays erase for three seconds
 	}
 		
 	void eraseCurrentStatus() {
 		piecePickupProgress.text = "";
 	}
 		
-	void updateProgressWinterCoat(int id) {
+	void updateProgressWinterCoat(int id){
 		if (id <= ReliefStats.SNOWY_TERRAIN_MAX_COLLECT) {
-			ReliefStats.snowyTerrainPiecesFound [id] = true;
+			Debug.Log (ReliefStats.Instance.currentSnowyTerrainProgress);
+			ReliefStats.Instance.snowyTerrainPiecesFound [id] = true;
 		}
-		ReliefStats.currentSnowyTerrainProgress++;
+		ReliefStats.Instance.currentSnowyTerrainProgress++;
 
-		if (ReliefStats.currentSnowyTerrainProgress < ReliefStats.SNOWY_TERRAIN_MAX_COLLECT) {
-			piecePickupProgress.text = System.String.Format(ReliefStats.SNOWY_TERRAIN_PIECE_RETRIEVED, ReliefStats.currentSnowyTerrainProgress);
+		if (ReliefStats.Instance.currentSnowyTerrainProgress < ReliefStats.SNOWY_TERRAIN_MAX_COLLECT) {
+			piecePickupProgress.text = System.String.Format(ReliefStats.Instance.SNOWY_TERRAIN_PIECE_RETRIEVED, ReliefStats.Instance.currentSnowyTerrainProgress);
 		} else {
-			piecePickupProgress.text = ReliefStats.SNOWY_TERRAIN_ALL_PIECES_RETRIEVED;
-			ReliefStats.HAS_ACCESS_TO_SNOWY_TERRAIN = true;
+			piecePickupProgress.text = ReliefStats.Instance.SNOWY_TERRAIN_ALL_PIECES_RETRIEVED;
+			ReliefStats.Instance.HAS_ACCESS_TO_SNOWY_TERRAIN = true;
 		}
 	}
 
 
 	void updateProgressScubaGear(int id) {
 		if (id <= ReliefStats.UNDERWATER_TERRAIN_MAX_COLLECT) {
-			ReliefStats.underwaterTerrainPiecesFound [id] = true;
+			ReliefStats.Instance.underwaterTerrainPiecesFound [0] = true;
 		}
-		ReliefStats.currentUnderwaterTerrainProgress++;
+		ReliefStats.Instance.currentUnderwaterTerrainProgress++;
 
-		if (ReliefStats.currentUnderwaterTerrainProgress < ReliefStats.UNDERWATER_TERRAIN_MAX_COLLECT) {
-			piecePickupProgress.text = System.String.Format(ReliefStats.UNDERWATER_TERRAIN_PIECE_RETRIEVED, ReliefStats.currentUnderwaterTerrainProgress) ;
+		if (ReliefStats.Instance.currentUnderwaterTerrainProgress < ReliefStats.UNDERWATER_TERRAIN_MAX_COLLECT) {
+			piecePickupProgress.text = System.String.Format(ReliefStats.Instance.UNDERWATER_TERRAIN_PIECE_RETRIEVED, ReliefStats.Instance.currentUnderwaterTerrainProgress) ;
 		} else {
-			piecePickupProgress.text = ReliefStats.UNDERWATER_TERRAIN_ALL_PIECES_RETRIEVED;
-				ReliefStats.HAS_ACCESS_TO_UNDERWATER_TERRAIN = true;
+			piecePickupProgress.text = ReliefStats.Instance.UNDERWATER_TERRAIN_ALL_PIECES_RETRIEVED;
+				ReliefStats.Instance.HAS_ACCESS_TO_UNDERWATER_TERRAIN = true;
 		}
 	}
 

@@ -7,6 +7,7 @@ namespace DigitalRuby.RainMaker
     {
         [Tooltip("The height above the camera that the rain will start falling from")]
         public float RainHeight = 25.0f;
+		public bool isFollowing = false;
 
         [Tooltip("How far the rain particle system is ahead of the player")]
         public float RainForwardOffset = -7.0f;
@@ -60,8 +61,10 @@ namespace DigitalRuby.RainMaker
         protected override void Update()
         {
             base.Update();
-
-            UpdateRain();
+			if (!isFollowing) {
+				UpdateRain ();
+				isFollowing = true;
+			} 
         }
     }
 }

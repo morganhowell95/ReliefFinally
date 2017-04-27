@@ -27,20 +27,24 @@ public class TerrainAccessor : MonoBehaviour {
 	void attemptTravel(string accessor) {
 		switch (accessor) {
 		case "snowyTerrainAccessor":
-			if (ReliefStats.HAS_ACCESS_TO_SNOWY_TERRAIN) {
-				fpc.transform.position = new Vector3(2310.0f, -23.0f, 221.66f);
+			if (ReliefStats.Instance.HAS_ACCESS_TO_SNOWY_TERRAIN) {
+				fpc.transform.position = new Vector3 (2310.0f, -23.0f, 221.66f);
 			} else {
-				int delta = ReliefStats.SNOWY_TERRAIN_MAX_COLLECT - ReliefStats.currentSnowyTerrainProgress;
-				accessUpdate.text = System.String.Format(ReliefStats.NO_ACCESS_SNOWY_TERRAIN, delta);
+				int delta = ReliefStats.SNOWY_TERRAIN_MAX_COLLECT - ReliefStats.Instance.currentSnowyTerrainProgress;
+				accessUpdate.text = System.String.Format (ReliefStats.Instance.NO_ACCESS_SNOWY_TERRAIN, delta);
 			}
 			break;
 		case "underwaterTerrainAccessor":
-			if (ReliefStats.HAS_ACCESS_TO_UNDERWATER_TERRAIN) {
+			if (ReliefStats.Instance.HAS_ACCESS_TO_UNDERWATER_TERRAIN) {
 				//transport FPC to the center of the underwater terrain 
 			} else {
-				int delta = ReliefStats.UNDERWATER_TERRAIN_MAX_COLLECT - ReliefStats.currentUnderwaterTerrainProgress;
-				accessUpdate.text = System.String.Format(ReliefStats.NO_ACCESS_UNDERWATER_TERRAIN, delta);
+				int delta = ReliefStats.UNDERWATER_TERRAIN_MAX_COLLECT - ReliefStats.Instance.currentUnderwaterTerrainProgress;
+				accessUpdate.text = System.String.Format (ReliefStats.Instance.NO_ACCESS_UNDERWATER_TERRAIN, delta);
 			}
+			break;
+		
+		case "grassyTerrainAccessor":
+			fpc.transform.position = new Vector3 (0f,0f,0f);
 			break;
 		}
 	}
